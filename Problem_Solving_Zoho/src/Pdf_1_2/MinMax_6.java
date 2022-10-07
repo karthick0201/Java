@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class MinMax_6 {
 
 	public static void main(String[] args) {
-		
 /*------------------------------------------------------------------------------------------------------------------------
 6) Given an array A of size N of integers. Your task is to find the minimum
 and maximum elements in the array.

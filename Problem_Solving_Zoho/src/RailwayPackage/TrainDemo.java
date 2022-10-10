@@ -6,9 +6,9 @@ public class TrainDemo {
 
 	public static void main(String[] args) {
 		Scanner in=new Scanner(System.in);
-		System.out.println("-----------------------------------------");
+		System.out.println("----------------------------------------");
 		System.out.println("\n\tVAIGAI TRAIN TICKET BOOKING\n");
-		System.out.println("-----------------------------------------");
+		System.out.println("----------------------------------------");
 		
 		
 		
@@ -100,8 +100,6 @@ public class TrainDemo {
 				//CHECKING CONDITION:
 				//----------------------------------------------------------------------------
 				
-				
-				
 				//---------------------------------------------------------------------------
   				ticketBooking.bookedTicket[n1]=null;
 				
@@ -116,7 +114,7 @@ public class TrainDemo {
 					
 				}else if(p.bP=='L' || p.bP=='l') {
 					ticketBooking.lBCount++;
-					System.out.println("call Lower ");//===================
+					System.out.println("call Lower CHeck");//===================
 				}
 				
 				ticketBooking.topTicketCount--; //minise 1 value

@@ -42,7 +42,7 @@ public class TicketBooking{
 		if((uBCount>0 && (bP == 'U' || bP=='u')) || (mBCount>0 && (bP == 'M' || bP=='m')) || (lBCount>0 && (bP == 'L' || bP=='l'))) {
 			
 			if(uBCount>0 && (bP == 'U' || bP=='u')) {
-				System.out.println("Upper Given");
+				System.out.println("Upper Given!");
 				//Add Object:
 				p.seatNumber=topTicketCount+1+ "U";  //-->Seat Number
 				bookedTicket[topTicketCount++]=p;
@@ -117,7 +117,6 @@ public class TicketBooking{
 			bookedRAC[topWL++]=p;
 			//-- one 
 			wLCount--;
-			
 		}
 
 	}

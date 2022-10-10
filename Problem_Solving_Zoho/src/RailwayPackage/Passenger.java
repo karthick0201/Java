@@ -22,7 +22,7 @@ public class Passenger  {
 		System.out.println("gender  : " + gender);
 		System.out.println("SeatNo. : " + seatNumber);
 		System.out.println("pNR N0  : " + pNR + "\n");
-		System.out.println("----------------------------");
+		System.out.println("----------------------------\n");
 	}
 	public void setDetails(Passenger p2) {
 		this.name=p2.name;

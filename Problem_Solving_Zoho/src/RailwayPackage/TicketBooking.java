@@ -42,52 +42,52 @@ public class TicketBooking{
 		if((uBCount>0 && (bP == 'U' || bP=='u')) || (mBCount>0 && (bP == 'M' || bP=='m')) || (lBCount>0 && (bP == 'L' || bP=='l'))) {
 			
 			if(uBCount>0 && (bP == 'U' || bP=='u')) {
-				System.out.println("Upper Given!");
+				System.out.println(">>>>>>>>Upper Given<<<<<<<<<");
 				//Add Object:
 				p.seatNumber=topTicketCount+1+ "U";  //-->Seat Number
 				bookedTicket[topTicketCount++]=p;
-				p.bP=bP;  // ------------------------->> checking 
+				p.bP='U';  // ------------------------->> checking 
 				//-- one 
 				uBCount--;
 				avaiableTicketCount--;
 				
 				
 			}else if(mBCount>0 && (bP == 'M' || bP=='m')) {
-				System.out.println("Middle Given");
+				System.out.println(">>>>>>>Middle Given<<<<<<<<<<");
 				//Add Object:
 				p.seatNumber=topTicketCount+1 + "M";  //-->Seat Number
 				bookedTicket[topTicketCount++]=p;
-				p.bP=bP;  // ------------------------->> checking
+				p.bP='M';  // ------------------------->> checking
 				//-- one 
 				mBCount--;
 				avaiableTicketCount--;
 				
 			}else if(lBCount>0 && (bP == 'L' || bP=='l')) {
-				System.out.println("Lower Given");
+				System.out.println(">>>>>>>Lower Given<<<<<<<<<");
 				//Add Object:
 				p.seatNumber=topTicketCount+1 + "L";  //-->Seat Number
 				bookedTicket[topTicketCount++]=p;
-				p.bP=bP;  // ------------------------->> checking
+				p.bP='L';  // ------------------------->> checking
 				//-- one 
 				lBCount--;
 				avaiableTicketCount--;
 				
 			}
 		}else if(uBCount>0) { 
-			System.out.println("Upper Given");
+			System.out.println(">>>>>>>Upper Given<<<<<<<<<");
 			//Add Object:
 			p.seatNumber=topTicketCount+1 + "U";  //-->Seat Number
 			bookedTicket[topTicketCount++]=p;
-			p.bP=bP;  // ------------------------->> checking
+			p.bP='U';  // ------------------------->> checking
 			//-- one 
 			uBCount--;
 			avaiableTicketCount--;
 		}else if(mBCount>0) { 
-			System.out.println("Middle Given");
+			System.out.println(">>>>>>>Middle Given<<<<<<<<<");
 			//Add Object:
 			p.seatNumber=topTicketCount+1 + "M";  //-->Seat Number
 			bookedTicket[topTicketCount++]=p;
-			p.bP=bP;  // ------------------------->> checking
+			p.bP='M';  // ------------------------->> checking
 			//-- one 
 			mBCount--;
 			avaiableTicketCount--;
@@ -95,23 +95,23 @@ public class TicketBooking{
 			//Add Object:
 			p.seatNumber=topTicketCount+1 + "L";  //-->Seat Number
 			bookedTicket[topTicketCount++]=p;
-			p.bP=bP;  // ------------------------->> checking
+			p.bP='L';  // ------------------------->> checking
 			//-- one 
 			lBCount--;
 			avaiableTicketCount--;
-			System.out.println("Lower Given");
+			System.out.println(">>>>>>>Lower Given<<<<<<<<<");
 		}else if(rACCount>0) { 
-			System.out.println("RAC Given");
+			System.out.println(">>>>>>>RAC Given<<<<<<<<<");
 			//Add Object:
 			p.seatNumber=topRAC+1 + "R";  //-->Seat Number
 			bookedRAC[topRAC++]=p;
-			p.bP=bP;  // ------------------------->> checking
+			p.bP='R';  // ------------------------->> checking
 			//-- one 
 			rACCount--;
 			avaiableTicketCount--;
 		}else if(wLCount>0) { 
-			System.out.println("Waiting Given");
-			p.bP=bP;  // ------------------------->> checking
+			System.out.println(">>>>>>>Waiting Given<<<<<<<<<");
+			p.bP='W';  // ------------------------->> checking
 			//Add Object:
 			p.seatNumber=topWL+1 + "WL";  //-->Seat Number
 			bookedRAC[topWL++]=p;
@@ -122,7 +122,7 @@ public class TicketBooking{
 	}
 	void PrintDetails(int pNR) {
 		if(topTicketCount==0) {
-			System.out.println("No Tickets Avaiable!!!");
+			System.out.println(">>>No Tickets Avaiable!!!<<<");
 			return;
 		}
 		int n=topTicketCount;

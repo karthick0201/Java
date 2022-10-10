@@ -21,7 +21,9 @@ public class Passenger  {
 		System.out.println("Age     : " + age);
 		System.out.println("gender  : " + gender);
 		System.out.println("SeatNo. : " + seatNumber);
-		System.out.println("pNR N0  : " + pNR + "\n");
+		System.out.println("pNR N0  : " + pNR);
+		System.out.println("berthP  : " + bP + "\n");
+		
 		System.out.println("----------------------------\n");
 	}
 	public void setDetails(Passenger p2) {

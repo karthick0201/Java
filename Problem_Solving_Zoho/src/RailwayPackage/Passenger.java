@@ -7,13 +7,16 @@ public class Passenger  {
 	char bP;
 	int pNR;
 	String seatNumber;
+	int serialNumber;
+	static int SERIALNUMBER=1;
 	
 	public Passenger(String name,int age,char gender,int pNR) {
 		this.name=name;
 		this.age=age;
 		this.gender=gender;
 		this.pNR=pNR;
-		seatNumber=" ";
+		seatNumber="";
+		serialNumber=SERIALNUMBER++;
 	}
 	void passengerDetails() {
 		System.out.println("----------------------------");
@@ -22,15 +25,16 @@ public class Passenger  {
 		System.out.println("gender  : " + gender);
 		System.out.println("SeatNo. : " + seatNumber);
 		System.out.println("pNR N0  : " + pNR);
-		System.out.println("berthP  : " + bP + "\n");
+		System.out.println("berthP  : " + bP);
+		System.out.println("serialNumber  : " + serialNumber + "\n");
 		
 		System.out.println("----------------------------\n");
 	}
-	public void setDetails(Passenger p2) {
-		this.name=p2.name;
-		this.age=p2.age;
-		this.gender=p2.gender;
-		this.pNR=p2.pNR;
-		this.seatNumber=p2.seatNumber;
-	}
+//	public void setDetails(Passenger p2) {
+//		this.name=p2.name;
+//		this.age=p2.age;
+//		this.gender=p2.gender;
+//		this.pNR=p2.pNR;
+//		this.seatNumber=p2.seatNumber;
+//	}
 }

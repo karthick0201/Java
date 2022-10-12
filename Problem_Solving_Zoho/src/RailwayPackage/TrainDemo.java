@@ -138,17 +138,36 @@ public class TrainDemo {
 							//same like RAC
 						/*===================================================================*/
 							if(TicketBooking.topWL!=0) {
-								//SEAT NO AND BERTH PERFERNCE CANGE CODE:
+								/*Seat Number and Berth CHange */
+								//String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber;
+								seatNum=ticketBooking.bookedRAC[ticketBooking.topRAC].seatNumber;
 								
+								
+						
+								ticketBooking.bookedRAC[ticketBooking.topRAC++]=ticketBooking.bookedWL[0]; //bookedRAC								
+								//SEAT NO AND BERTH PERFERNCE CANGE CODE:
+								swapBerthIdWL(seatNum,ticketBooking.topRAC-1,'R'); 
 								/*--------------
 								 * ----------------
 								 * --------------- */
-								
+								ticketBooking.avaiableTicketCount--;
 								if(ticketBooking.topWL==1) {
 									ticketBooking.topWL--;
+									//2 conditions
+									ticketBooking.wLCount++;
+									ticketBooking.rACCount--; // >>>
+									System.out.println("CHeck top==1(wLToRac) : (if)");
 									//----balancecode type
-								}else if(true) {
-									
+								}else if(ticketBooking.topWL>1) {
+									for(int j=0;j<ticketBooking.topWL-1;j++) {
+										ticketBooking.bookedWL[j]=ticketBooking.bookedWL[j+1];
+									}
+									ticketBooking.topWL--;  // >>>
+									ticketBooking.rACCount--; ///>>
+									ticketBooking.wLCount++;  //>>>
+									System.out.println("CHeck top>1(wLToRac) : (else if)");
+								}else {
+									System.out.println("CHeck top==1!(wLToRac) : (else)");
 								}
 							}
 						}
@@ -271,6 +290,14 @@ public class TrainDemo {
 		
 		
 	}
+	private static void swapBerthIdWL(String seatNum, int index, char bP) {
+		//ticketBooking.bookedTicket[ticketBooking.topTicketCount-1].bP='U';
+		TicketBooking.bookedRAC[index].bP=bP;
+		// ticketBooking.bookedTicket[ticketBooking.topTicketCount-1].seatNumber=seatNum;
+		TicketBooking.bookedRAC[index].seatNumber=seatNum;
+		
+	}
+	
 
 	private static void ticketBook(TicketBooking ticketBooking) {
 		Scanner in=new Scanner(System.in);

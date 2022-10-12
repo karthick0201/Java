@@ -23,12 +23,12 @@ public class Passenger  {
 		System.out.println("\nName  : " + name);
 		System.out.println("Age     : " + age);
 		System.out.println("gender  : " + gender);
-		System.out.println("SeatNo. : " + seatNumber);
 		System.out.println("pNR N0  : " + pNR);
 		System.out.println("berthP  : " + bP);
 		System.out.println("serialNumber  : " + serialNumber + "\n");
 		
 		System.out.println("----------------------------\n");
+		//System.out.println("SeatNo. : " + seatNumber);
 	}
 //	public void setDetails(Passenger p2) {
 //		this.name=p2.name;

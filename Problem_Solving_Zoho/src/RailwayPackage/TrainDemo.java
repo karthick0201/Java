@@ -71,7 +71,7 @@ public class TrainDemo {
 
 	private static void ticketCancel(TicketBooking ticketBooking,int serialNumber) {
 
-		if(ticketBooking.avaiableTicketCount==8) {   
+		if(ticketBooking.avaiableTicketCount==ticketBooking.n) {   
 			System.out.println("No Tickets Avaiable to Cancel!!!");
 			return;
 		}
@@ -86,169 +86,32 @@ public class TrainDemo {
 						ticketBooking.bookedTicket[j]=ticketBooking.bookedTicket[j+1];
 						
 					}
-					ticketBooking.topTicketCount--; //minise 1 value
+					ticketBooking.topTicketCount--; 
 					ticketBooking.avaiableTicketCount++;
 					
 					if(p.bP=='U' || p.bP=='u') {
 						ticketBooking.uBCount++;
 						System.out.println(">>>>>>call Upper<<<<<<< ");
-						
-						if(TicketBooking.topRAC!=0) {
-							/*Seat Number and Berth CHange 
-							 * LINE NUMBER : 104,106,107
-							 */
-							String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber; 
-							//System.out.println("Checking SeatNumber : (B)" + seatNum);
-							
-							ticketBooking.bookedTicket[ticketBooking.topTicketCount++]=ticketBooking.bookedRAC[0];
-							//CHANGING BERTHPERFERENCE:
-							//ticketBooking.bookedTicket[ticketBooking.topTicketCount-1].bP='U';
-							//CHANGE SEAT NUMBER:
-						//	String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber; //100 LINE NUMBER
-							//System.out.println(ticketBooking.bookedTicket[ticketBooking.topTicketCount-1].seatNumber=seatNum);
-							//System.out.println("Checking SeatNumber : (A)" + seatNum);
-							//change berth();
-							swapBerthId(seatNum,ticketBooking.topTicketCount-1,'U');  //105,108  ||  PASS  : 
-							
-							//same code
-							ticketBooking.avaiableTicketCount--;
-							//RAC SWAP
-							if(ticketBooking.topRAC==1) {
-								ticketBooking.topRAC--;
-								//2 conditions
-								ticketBooking.uBCount--;
-								ticketBooking.rACCount++;
-								System.out.println("CHeck top==1 : (if)");
-							}
-							else if(ticketBooking.topRAC>1) {
-								for(int j=0;j<ticketBooking.topRAC-1;j++) {
-									ticketBooking.bookedRAC[j]=ticketBooking.bookedRAC[j+1];
-								}
-								ticketBooking.topRAC--;
-								ticketBooking.uBCount--;
-								ticketBooking.rACCount++;
-								System.out.println("CHeck top>1 : (else if)");
-							}else {
-								System.out.println("CHeck top==1! : (else)");
-							}
-							
-							
-							
-							//waiting LIst CHeck:
-							//same like RAC
-						/*===================================================================*/
-							if(TicketBooking.topWL!=0) {
-								/*Seat Number and Berth CHange */
-								//String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber;
-								seatNum=ticketBooking.bookedRAC[ticketBooking.topRAC].seatNumber;
-								
-								
-						
-								ticketBooking.bookedRAC[ticketBooking.topRAC++]=ticketBooking.bookedWL[0]; //bookedRAC								
-								//SEAT NO AND BERTH PERFERNCE CANGE CODE:
-								swapBerthIdWL(seatNum,ticketBooking.topRAC-1,'R'); 
-								/*--------------
-								 * ----------------
-								 * --------------- */
-								ticketBooking.avaiableTicketCount--;
-								if(ticketBooking.topWL==1) {
-									ticketBooking.topWL--;
-									//2 conditions
-									ticketBooking.wLCount++;
-									ticketBooking.rACCount--; // >>>
-									System.out.println("CHeck top==1(wLToRac) : (if)");
-									//----balancecode type
-								}else if(ticketBooking.topWL>1) {
-									for(int j=0;j<ticketBooking.topWL-1;j++) {
-										ticketBooking.bookedWL[j]=ticketBooking.bookedWL[j+1];
-									}
-									ticketBooking.topWL--;  // >>>
-									ticketBooking.rACCount--; ///>>
-									ticketBooking.wLCount++;  //>>>
-									System.out.println("CHeck top>1(wLToRac) : (else if)");
-								}else {
-									System.out.println("CHeck top==1!(wLToRac) : (else)");
-								}
-							}
-						}
+						int temp = cancel(ticketBooking,ticketBooking.uBCount,p.bP);
+						ticketBooking.uBCount = temp;
+					
 					}else if(p.bP=='M' || p.bP=='m') {
 						
 						ticketBooking.mBCount++;
 						System.out.println(">>>>>>>call middle ");
-						
-						if(TicketBooking.topRAC!=0) {
-							//seat change : 
-							String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber; 
-							ticketBooking.bookedTicket[ticketBooking.topTicketCount++]=ticketBooking.bookedRAC[0];
-							swapBerthId(seatNum,ticketBooking.topTicketCount-1,'M');
-							
-							//ticketBooking.bookedTicket[ticketBooking.topTicketCount++]=ticketBooking.bookedRAC[0];
-							ticketBooking.avaiableTicketCount--;
-							//RAC SWAP
-							if(ticketBooking.topRAC==1) {
-								ticketBooking.topRAC--;
-								//2 conditions
-								ticketBooking.mBCount--; //up / mi
-								ticketBooking.rACCount++;
-								System.out.println("CHeck top==1 : (if)");
-							}
-							else if(ticketBooking.topRAC>1) {
-								for(int j=0;j<ticketBooking.topRAC-1;j++) {
-									ticketBooking.bookedRAC[j]=ticketBooking.bookedRAC[j+1];
-								}
-								ticketBooking.topRAC--;
-								ticketBooking.mBCount--;
-								ticketBooking.rACCount++;
-								System.out.println("CHeck top>1 : (else if)");
-							}else {
-								System.out.println("CHeck top==1! : (else)");
-							}
-						}
 
+						int temp = cancel(ticketBooking,ticketBooking.mBCount,p.bP);
+						ticketBooking.mBCount = temp;
+	
 					}else if(p.bP=='L' || p.bP=='l') {
 						ticketBooking.lBCount++;
 						System.out.println(">>>>>>>>call Lower<<<<<<<<");
 						
-						if(TicketBooking.topRAC!=0) {
-							
-							//seat change : 
-							String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber; 
-							ticketBooking.bookedTicket[ticketBooking.topTicketCount++]=ticketBooking.bookedRAC[0];
-							swapBerthId(seatNum,ticketBooking.topTicketCount-1,'L');
-							
-							//ticketBooking.bookedTicket[ticketBooking.topTicketCount++]=ticketBooking.bookedRAC[0];
-							
-							ticketBooking.avaiableTicketCount--;
-							//RAC SWAP
-							if(ticketBooking.topRAC==1) {
-								ticketBooking.topRAC--;
-								//2 conditions
-								ticketBooking.lBCount--;
-								ticketBooking.rACCount++;
-								System.out.println("CHeck top==1 : (if)");
-							}
-							else if(ticketBooking.topRAC>1) {
-								for(int j=0;j<ticketBooking.topRAC-1;j++) {
-									ticketBooking.bookedRAC[j]=ticketBooking.bookedRAC[j+1];
-								}
-								ticketBooking.topRAC--;
-								ticketBooking.lBCount--;
-								ticketBooking.rACCount++;
-								System.out.println("CHeck top>1 : (else if)");
-							}else {
-								System.out.println("CHeck top==1! : (else)");
-							}
-							
-						}
-						
-						
+						int temp = cancel(ticketBooking,ticketBooking.lBCount,p.bP);
+						ticketBooking.lBCount = temp;
 					}
-
-//					ticketBooking.topTicketCount--; //minise 1 value
-//					ticketBooking.avaiableTicketCount++;
 				}
 			}
-			//================================================================
 			//2. ARRAY -->2
 			int n2=ticketBooking.topRAC;
 			for(int i=0;i<n2;i++) {
@@ -281,7 +144,72 @@ public class TrainDemo {
 		}
 
 	}
+    private static int cancel(TicketBooking ticketBooking,int availableberth,char pb) {
+    	if(TicketBooking.topRAC!=0) {
+			String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber; 
+			ticketBooking.bookedTicket[ticketBooking.topTicketCount++]=ticketBooking.bookedRAC[0];
+			swapBerthId(seatNum,ticketBooking.topTicketCount-1,pb);
+			ticketBooking.avaiableTicketCount--;
+			//RAC SWAP
+			if(ticketBooking.topRAC==1) {
+				ticketBooking.topRAC--;
+				//2 conditions
+				availableberth--;
+				ticketBooking.rACCount++;
+				System.out.println("CHeck top==1 : (if)");
+			}
+			else if(ticketBooking.topRAC>1) {
+				for(int j=0;j<ticketBooking.topRAC-1;j++) {
+					ticketBooking.bookedRAC[j]=ticketBooking.bookedRAC[j+1];
+				}
+				ticketBooking.topRAC--;
+				availableberth--;
+				ticketBooking.rACCount++;
+				System.out.println("CHeck top>1 : (else if)");
+			}else {
+				System.out.println("CHeck top==1! : (else)");
+			}
+			
+			//waiting LIst CHeck:
+			//same like RAC
+			if(TicketBooking.topWL!=0) {
+				/*Seat Number and Berth CHange */
+				//String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber;
+				seatNum=ticketBooking.bookedRAC[ticketBooking.topRAC].seatNumber;
+						
+				ticketBooking.bookedRAC[ticketBooking.topRAC++]=ticketBooking.bookedWL[0]; //bookedRAC								
+				//SEAT NO AND BERTH PERFERNCE CANGE CODE:
+				swapBerthIdWL(seatNum,ticketBooking.topRAC-1,'R'); 
 
+				ticketBooking.avaiableTicketCount--;
+				if(ticketBooking.topWL==1) {
+					ticketBooking.topWL--;
+					//2 conditions
+					ticketBooking.wLCount++;
+					ticketBooking.rACCount--; // >>>
+					System.out.println("CHeck top==1(wLToRac) : (if)");
+					//----balancecode type
+					//++++++++++++++++++++++++++++++++++
+					ticketBooking.avaiableTicketCount++;
+
+				}else if(ticketBooking.topWL>1) {
+					for(int j=0;j<ticketBooking.topWL-1;j++) {
+						ticketBooking.bookedWL[j]=ticketBooking.bookedWL[j+1];
+					}
+					ticketBooking.topWL--;  // >>>
+					ticketBooking.rACCount--; ///>>
+					ticketBooking.wLCount++;  //>>>
+					System.out.println("CHeck top>1(wLToRac) : (else if)");
+					//++++++++++++++++++++++++++++++++++++++++++++++++++
+					ticketBooking.avaiableTicketCount++;
+
+				}else {
+					System.out.println("CHeck top==1!(wLToRac) : (else)");
+				}
+			}
+    	}
+		return availableberth;
+    }
 	private static void swapBerthId(String seatNum, int index, char bP) {
 		//ticketBooking.bookedTicket[ticketBooking.topTicketCount-1].bP='U';
 		TicketBooking.bookedTicket[index].bP=bP;
@@ -312,6 +240,7 @@ public class TrainDemo {
 		int pNR;
 		System.out.print("Enter How Many TIckets : ");
 		bookCount=in.nextInt();
+		int noOfTicket = bookCount;
 		if(TicketBooking.avaiableTicketCount>=bookCount) {
 			pNR=TicketBooking.pNRNumber;
 			while(bookCount>0) {
@@ -329,7 +258,7 @@ public class TrainDemo {
 				bookCount--;
 
 			}
-			printBill(bookCount);
+			printBill(noOfTicket);
 			System.out.println("Your PNR NUMBER : " + TicketBooking.pNRNumber);
 			TicketBooking.pNRNumber++;
 
@@ -340,7 +269,7 @@ public class TrainDemo {
 
 	}
 
-	private static void printBill(int bookCount) {
+	private static void printBill(int bookCount) { 
 		int ticketPrice=1000;
 		System.out.println("================================================");
 		System.out.println("Ticket Price      : " + ticketPrice);
@@ -350,5 +279,176 @@ public class TrainDemo {
 		
 		
 	}
-
 }
+
+
+
+
+
+
+
+
+/*					if(TicketBooking.topRAC!=0) {
+							//seat change : 
+							String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber; 
+							ticketBooking.bookedTicket[ticketBooking.topTicketCount++]=ticketBooking.bookedRAC[0];
+							swapBerthId(seatNum,ticketBooking.topTicketCount-1,'M');
+							
+							//ticketBooking.bookedTicket[ticketBooking.topTicketCount++]=ticketBooking.bookedRAC[0];
+							ticketBooking.avaiableTicketCount--;
+							//RAC SWAP
+							if(ticketBooking.topRAC==1) {
+								ticketBooking.topRAC--;
+								//2 conditions
+								ticketBooking.mBCount--; //up / mi
+								ticketBooking.rACCount++;
+								System.out.println("CHeck top==1 : (if)");
+							}
+							else if(ticketBooking.topRAC>1) {
+								for(int j=0;j<ticketBooking.topRAC-1;j++) {
+									ticketBooking.bookedRAC[j]=ticketBooking.bookedRAC[j+1];
+								}
+								ticketBooking.topRAC--;
+								ticketBooking.mBCount--;
+								ticketBooking.rACCount++;
+								System.out.println("CHeck top>1 : (else if)");
+							}else {
+								System.out.println("CHeck top==1! : (else)");
+							}
+							
+							//waiting LIst CHeck:
+							//same like RAC
+//						/*===================================================================*/
+//							if(TicketBooking.topWL!=0) {
+//								/*Seat Number and Berth CHange */
+//								//String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber;
+//								seatNum=ticketBooking.bookedRAC[ticketBooking.topRAC].seatNumber;
+//								
+//								
+//						
+//								ticketBooking.bookedRAC[ticketBooking.topRAC++]=ticketBooking.bookedWL[0]; //bookedRAC								
+//								//SEAT NO AND BERTH PERFERNCE CANGE CODE:
+//								swapBerthIdWL(seatNum,ticketBooking.topRAC-1,'R'); 
+//								/*--------------
+//								 * ----------------
+//								 * --------------- */
+//								ticketBooking.avaiableTicketCount--;
+//								if(ticketBooking.topWL==1) {
+//									ticketBooking.topWL--;
+//									//2 conditions
+//									ticketBooking.wLCount++;
+//									ticketBooking.rACCount--; // >>>
+//									System.out.println("CHeck top==1(wLToRac) : (if)");
+//									//----balancecode type
+//									//++++++++++++++++++++++++++++++++++
+//									ticketBooking.avaiableTicketCount++;
+//
+//								}else if(ticketBooking.topWL>1) {
+//									for(int j=0;j<ticketBooking.topWL-1;j++) {
+//										ticketBooking.bookedWL[j]=ticketBooking.bookedWL[j+1];
+//									}
+//									ticketBooking.topWL--;  // >>>
+//									ticketBooking.rACCount--; ///>>
+//									ticketBooking.wLCount++;  //>>>
+//									System.out.println("CHeck top>1(wLToRac) : (else if)");
+//									//++++++++++++++++++++++++++++++++++++++++++++++++++
+//									ticketBooking.avaiableTicketCount++;
+//
+//								}else {
+//									System.out.println("CHeck top==1!(wLToRac) : (else)");
+//								}
+//							}
+//							
+//						}
+//						
+//if(TicketBooking.topRAC!=0) {
+//	/*Seat Number and Berth CHange 
+//	 * LINE NUMBER : 104,106,107
+//	 */
+//	String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber; 
+//	//System.out.println("Checking SeatNumber : (B)" + seatNum);
+//	
+//	ticketBooking.bookedTicket[ticketBooking.topTicketCount++]=ticketBooking.bookedRAC[0];
+//	//CHANGING BERTHPERFERENCE:
+//	//ticketBooking.bookedTicket[ticketBooking.topTicketCount-1].bP='U';
+//	//CHANGE SEAT NUMBER:
+////	String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber; //100 LINE NUMBER
+//	//System.out.println(ticketBooking.bookedTicket[ticketBooking.topTicketCount-1].seatNumber=seatNum);
+//	//System.out.println("Checking SeatNumber : (A)" + seatNum);
+//	//change berth();
+//	swapBerthId(seatNum,ticketBooking.topTicketCount-1,'U');  //105,108  ||  PASS  : 
+//	
+//	//same code
+//	ticketBooking.avaiableTicketCount--;
+//	//RAC SWAP
+//	if(ticketBooking.topRAC==1) {
+//		ticketBooking.topRAC--;
+//		//2 conditions
+//		ticketBooking.uBCount--;
+//		ticketBooking.rACCount++;
+//		System.out.println("CHeck top==1 : (if)");
+//		/*checking new code*///++++++++++++++++++++++++++
+//		ticketBooking.avaiableTicketCount++;
+//
+//	}
+//	else if(ticketBooking.topRAC>1) {
+//		for(int j=0;j<ticketBooking.topRAC-1;j++) {
+//			ticketBooking.bookedRAC[j]=ticketBooking.bookedRAC[j+1];
+//		}
+//		ticketBooking.topRAC--;
+//		ticketBooking.uBCount--;
+//		ticketBooking.rACCount++;
+//		System.out.println("CHeck top>1 : (else if)");
+//		ticketBooking.avaiableTicketCount++;
+//
+//	}else {
+//		System.out.println("CHeck top==1! : (else)");
+//	}
+//	
+//	
+//	
+//	//waiting LIst CHeck:
+//	//same like RAC
+///*===================================================================*/
+//	if(TicketBooking.topWL!=0) {
+//		/*Seat Number and Berth CHange */
+//		//String seatNum=ticketBooking.bookedTicket[ticketBooking.topTicketCount].seatNumber;
+//		seatNum=ticketBooking.bookedRAC[ticketBooking.topRAC].seatNumber;
+//		
+//		
+//
+//		ticketBooking.bookedRAC[ticketBooking.topRAC++]=ticketBooking.bookedWL[0]; //bookedRAC								
+//		//SEAT NO AND BERTH PERFERNCE CANGE CODE:
+//		swapBerthIdWL(seatNum,ticketBooking.topRAC-1,'R'); 
+//		/*--------------
+//		 * ----------------
+//		 * --------------- */
+//		ticketBooking.avaiableTicketCount--;
+//		if(ticketBooking.topWL==1) {
+//			ticketBooking.topWL--;
+//			//2 conditions
+//			ticketBooking.wLCount++;
+//			ticketBooking.rACCount--; // >>>
+//			System.out.println("CHeck top==1(wLToRac) : (if)");
+//			//----balancecode type
+//			//++++++++++++++++++++++++++++++++++
+//			ticketBooking.avaiableTicketCount++;
+//
+//		}else if(ticketBooking.topWL>1) {
+//			for(int j=0;j<ticketBooking.topWL-1;j++) {
+//				ticketBooking.bookedWL[j]=ticketBooking.bookedWL[j+1];
+//			}
+//			ticketBooking.topWL--;  // >>>
+//			ticketBooking.rACCount--; ///>>
+//			ticketBooking.wLCount++;  //>>>
+//			System.out.println("CHeck top>1(wLToRac) : (else if)");
+//			//++++++++++++++++++++++++++++++++++++++++++++++++++
+//			ticketBooking.avaiableTicketCount++;
+//
+//		}else {
+//			System.out.println("CHeck top==1!(wLToRac) : (else)");
+//		}
+//	}
+//}
+						
+

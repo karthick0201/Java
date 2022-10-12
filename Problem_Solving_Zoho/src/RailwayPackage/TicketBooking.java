@@ -3,17 +3,17 @@ package RailwayPackage;
 public class TicketBooking{
 	//TICKET AVAIABLITY: --> UNCHANGED 
 	final static int upperBerth=1;
-	final static int middleBerth=0;
-	final static int lowerBerth=0;
-	final static int rAC=2;
+	final static int middleBerth=1;
+	final static int lowerBerth=1;
+	final static int rAC=1;
 	final static int wL=1;
 	//TICKET COUNT
 	static int uBCount=1; //2
-	static int mBCount=0;//2
-	static int lBCount=0;//2
-	static int rACCount=2;//2
+	static int mBCount=1;//2
+	static int lBCount=1;//2
+	static int rACCount=1;//2
 	static int wLCount=1; //2
-
+	static final int n=(upperBerth +middleBerth + lowerBerth + rAC + wL);  
 	static int avaiableTicketCount=(upperBerth +middleBerth + lowerBerth + rAC + wL);   //---> Total Count
 	
 	//ARRAY OF OBJECTS:
@@ -48,7 +48,7 @@ int wLTicketN=2;
 ---------------------------------------------NEW VARIABLES------------------------------------------------*/
 	
 	
-	public void bookTickets(char bP, Passenger p) {
+	public void bookTickets(char bP, Passenger p) {  
 //		System.out.print("Checking   bookticket");
 		if(p.age<=6) {
 			System.out.println("Age 6 Perso");
@@ -157,7 +157,7 @@ int wLTicketN=2;
 		}
 
 	}
-	void PrintDetails(int pNR) {
+	void PrintDetails(int pNR) { 
 		if(topTicketCount==0) {
 			System.out.println(">>>No Tickets Avaiable!!!<<<");
 			return;

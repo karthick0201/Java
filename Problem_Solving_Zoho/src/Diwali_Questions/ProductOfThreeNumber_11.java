@@ -33,7 +33,7 @@ public class ProductOfThreeNumber_11 {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		// INPUT:
+		// INPUT::
 		System.out.println("ENter n Value: ");
 		int n = in.nextInt();
 		int A[] = new int[n];

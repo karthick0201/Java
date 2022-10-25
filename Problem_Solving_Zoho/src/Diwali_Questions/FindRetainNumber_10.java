@@ -31,6 +31,7 @@ import java.util.Scanner;
 public class FindRetainNumber_10 {
 
 	public static void main(String[] args) {
+		Scanner inn=new Scanner(System.in);
 		Scanner in=new Scanner(System.in);
 		System.out.println("Enter N1 : ");
 		int n1=in.nextInt();

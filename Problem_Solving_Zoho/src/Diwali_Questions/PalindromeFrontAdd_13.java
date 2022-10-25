@@ -9,7 +9,7 @@ import java.util.Scanner;
 	Input: s = "aacecaaa"
 	Output: "aaacecaaa"
 	Input: s = "abcd"
-	Output: "dcbabcd"
+	Output: "dcbabcd"------------------
 */
 public class PalindromeFrontAdd_13 {
 
@@ -19,6 +19,7 @@ public class PalindromeFrontAdd_13 {
 		//String s="aacecaaa";
 		String s=in.next();
 		int index=1;
+		int check=0;
 		while(checkPalindrome(s) == false) {
 			s=s.charAt(index) + s;
 			index += 2;

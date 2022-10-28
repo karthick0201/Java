@@ -41,10 +41,12 @@ public class MainBalloons {
 				reception(t3);
 				break;
 			case 4:
-				System.out.println("case 4!!!");
+				t4=new Task_4();
+				reception(t4);
 				break;
 			case 5:
-				System.out.println("case 5!!!");
+				t5=new Task_5();
+				reception(t5);
 				break;
 			case 6:
 				System.out.println("\tThankYou!!!");
@@ -81,15 +83,14 @@ public class MainBalloons {
 			position=in.nextInt();
 			System.out.print("Enter Balloon Color : ");
 			color = inn.next().charAt(0);
-			int col=position--;
+			int col=position;
 			int row=m;
 			
 			t1.dropBalloons(A,col,row-1,color);
-			t1.printMatrix(A);
-			if(t1.isBalloonCheck(A,m,n)) {
-				System.out.println("Column is filled completely. Program is terminated...");
+			if(t1.isBalloonCheck(A,m,n)) {				
 				break;
 			}
+			t1.printMatrix(A);
 			System.out.print("Do you wish to continue(Y/N) : ");
 			check=inn.next().charAt(0);
 		}

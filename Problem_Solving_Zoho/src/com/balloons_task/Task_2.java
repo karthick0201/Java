@@ -23,6 +23,7 @@ public class Task_2 extends AbstractBalloons{
 				}
 			}
 			if(flag==3) {
+				System.out.println("Column is filled completely. Program is terminated...");
 				return true;
 			}
 		}

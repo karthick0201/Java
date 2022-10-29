@@ -8,13 +8,6 @@ public class MainBalloons {
 		Scanner in=new Scanner(System.in);
 		/*OBJECT CREATION*/
 		AbstractBalloons t1,t2,t3,t4,t5;
-/*		AbstractBalloons t1=new Task_1();
-		AbstractBalloons t1=new Task_1();
-		AbstractBalloons t1=new Task_1();
-		AbstractBalloons t1=new Task_1();*/
-		
-		
-		
 		
 		System.out.println("\tWelcome!!!\n");
 		boolean check=true;
@@ -66,15 +59,15 @@ public class MainBalloons {
 		System.out.println("Enter Matrix Size(M,N) : ");
 		int m=in.nextInt();
 		int n=in.nextInt();
-		char A[][] = new char[m][n];
-		System.out.println("Print : ");
-		for(int i=0;i<3;i++) {
-			for(int j=0;j<3;j++) {
+		char A[][] = setDefaultValue(m,n); //new char[m][n];
+		/*System.out.println("Print : ");
+		for(int i=0;i<m;i++) {
+			for(int j=0;j<n;j++) {
 				A[i][j] ='.';
 				System.out.print(A[i][j] + " ");
 			}
 			System.out.println();
-		}
+		}*/
 		int position;
 		char color;
 		char check = 'y';
@@ -95,5 +88,18 @@ public class MainBalloons {
 			check=inn.next().charAt(0);
 		}
 		
+	}
+
+	private static char[][] setDefaultValue(int m, int n) {
+		char[][] A= new char[m][n];
+		System.out.println("Print : ");
+		for(int i=0;i<m;i++) {
+			for(int j=0;j<n;j++) {
+				A[i][j] ='.';
+				System.out.print(A[i][j] + " ");
+			}
+			System.out.println();
+		}
+		return A;
 	}
 }

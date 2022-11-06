@@ -3,10 +3,18 @@ package Hospital;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class CalculateTime {
 
 	public static void main(String[] args) {
+		
+		//type1();
+		type2();
+		
+	}
+	static void type1() {
 		String time1 = "16:23:00";
 		String time2 = "19:00:00";
 
@@ -34,7 +42,19 @@ public class CalculateTime {
 
 			e.printStackTrace();
 		}
-
+	}
+	
+	static void type2() {
+		
+	    DateTimeFormatter df = DateTimeFormatter.ofPattern("HH:mm");
+	    LocalTime lt = LocalTime.parse("23:55");
+	    
+	    
+	    System.out.println(df.format(lt.plusMinutes(10)));
+	    
+	    
+	    String time=df.format(lt.plusMinutes(10));
+	    System.out.println(time);
 	}
 
 }

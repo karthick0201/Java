@@ -23,7 +23,7 @@ public class DbOperations {
 //				System.out.println(rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t"
 //						+ rs.getString(4) + "\t" + rs.getInt(5) + rs.getString(6));
 //			}
-			if (rs.next() != false) {
+			if (rs.next()) {
 				System.out.println("Existing Patient!!!");
 				System.out.println("Your Id is : " + rs.getInt(1));
 				return true;

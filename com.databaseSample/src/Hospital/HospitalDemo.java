@@ -19,7 +19,10 @@ public class HospitalDemo {
 				System.out.println("<<<<<Entry>>>>>");
 				Patient p=patientChecking();
 				//TIME ADDING
-				hospitalTimeCalculate(p); //---> return calculate value minute and write sorry comment 
+				int timeTaken=hospitalTimeCalculate(p); 
+				if(timeTaken>=27) { //27 mins
+					System.out.println("Sorry for late!!!");
+				}
 				p.display();
 				
 				break;
@@ -47,7 +50,7 @@ public class HospitalDemo {
 		String name=in.next();
 		System.out.print("Enter Phone No. : ");
 		String phoneNo=in.next();
-		System.out.println("Enter In Time(\"19:00:00\"): ");
+		System.out.println("Enter In Time(\"19:20\"): ");
 		String time=in.next();
 		//EXISTING PATIENT OBJECT CREATION:
 		Patient p = null;
@@ -63,7 +66,7 @@ public class HospitalDemo {
 		return p;
 	}
 
-	private static void hospitalTimeCalculate(Patient p) {
+	private static int hospitalTimeCalculate(Patient p) {
 		int minutes=0;
 		//MEDICAL PROFESSIONALS: -- 5MINS EACH
 		final int medicalProfessionals=10; //2.
@@ -81,6 +84,7 @@ public class HospitalDemo {
         System.out.println("Total Minitues : " + minutes);
         p.timeTaken=minutes;
         System.out.println("Works done!!! form HospitalDemo class");
+        return minutes;
 		
 		
 	}

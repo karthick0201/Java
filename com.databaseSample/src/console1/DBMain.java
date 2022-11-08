@@ -10,7 +10,7 @@ public class DBMain {
 		boolean check=true;
 		int choice;
 		while(check) {
-			System.out.println("\t DB-1\n\t------");
+			System.out.println("\t DB-1\n\t--------");
 			
 			System.out.println("1. Login\n2. Register\n3. Display\n4. Exit");
 			System.out.print("-----------------------\nEnter Your Choice : ");

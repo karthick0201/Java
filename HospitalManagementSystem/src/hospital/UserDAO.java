@@ -1,0 +1,43 @@
+package hospital;
+
+import java.sql.*;
+
+public class UserDAO {
+
+	protected static Connection initializeDatabase() throws SQLException, ClassNotFoundException {
+		String dbDriver = "com.mysql.cj.jdbc.Driver";
+		String jdbcURL = "jdbc:mysql://localhost/hospitalservlet";
+		String jdbcUsername = "root";
+		String jdbcPassword = "root";
+//		/Class.forName(dbDriver);
+		Connection  con=DriverManager.getConnection(jdbcURL,jdbcUsername,jdbcPassword);
+		return con;	
+	}
+
+	public String insertUser(Patient p) throws ClassNotFoundException, SQLException {
+		System.out.println("----------------------------...");
+		
+			//Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = initializeDatabase();
+			Statement st = con.createStatement();
+//			String sql = "INSERT INTO patient_db1(patient_name,phone_no,in_time,doctor_time) values('" + p.name + "','"
+//					+ p.phoneNo + "','" + p.inTime + "'," + p.doctorTime + ")";
+			String sql = "INSERT INTO patient_db1(patient_name,phone_no,in_time,doctor_time) values(?,?,?,?)";
+			
+			String result="Data Entered Successfully";
+			try {
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setString(1, p.getName());
+				ps.setString(2, p.getPhoneNo());
+				ps.setString(3, p.getInTime());
+				ps.setInt(4, p.doctorTime);
+				ps.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				result="Data Not Entered Successfully";
+				e.printStackTrace();
+			}
+			return result;
+
+		}
+	}

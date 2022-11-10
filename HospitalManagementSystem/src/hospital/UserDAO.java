@@ -2,6 +2,8 @@ package hospital;
 
 import java.sql.*;
 
+import com.mysql.cj.xdevapi.PreparableStatement;
+
 public class UserDAO {
 
 	protected static Connection initializeDatabase() throws SQLException, ClassNotFoundException {
@@ -33,11 +35,34 @@ public class UserDAO {
 				ps.setInt(4, p.doctorTime);
 				ps.executeUpdate();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				result="Data Not Entered Successfully";
 				e.printStackTrace();
 			}
 			return result;
 
 		}
+	//AUTHCATE --> CHECKING
+	public static boolean isVaildate(int id, String phoneNo) {
+		try {
+			Connection con=UserDAO.initializeDatabase();
+			Statement st = con.createStatement();
+			String sql="select * from hospitalservlet.patient_db1";
+			ResultSet rs=st.executeQuery(sql);
+			while(rs.next()) {
+				int id2=rs.getInt(1);
+				String pno2=rs.getString(3);
+				if(id==id2 && pno2.equals(phoneNo)) {
+					System.out.println("Return True from user DAO class");
+					return true;	
+				}
+			}
+			return false;	
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+	return false;	
 	}
+	
+}

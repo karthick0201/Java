@@ -40,11 +40,9 @@ public class LoginServlet extends HttpServlet {
 			try {
 				uDAO.insertUser(p);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

@@ -9,20 +9,20 @@
 <body>
 <h1>HOSPITAL MANAGEMENT SYSTEM</h1>
 	
-	<form method="post" action="">
+	<form method="post" action="VaildateServlet">
 		<table>
 			<tr>
 				<td>Id :</td>
-				<td><input type="text" id='p_name'>
+				<td><input type="text" id='p_id' name='p_id'>
 			</tr>
 			<tr>
 				<td>Phone Number :</td>
-				<td><input type="text" id='p_password'></td>
+				<td><input type="text" id='p_phoneno' name='p_phoneno'></td>
 			</tr>
 		</table>
 
 		<input type="submit" value='Submit'>
 	</form>
-	<a href="NewPatient.jsp">New Register</a>
+	<a href="NewRegister.jsp">New Register</a>
 </body>
 </html>

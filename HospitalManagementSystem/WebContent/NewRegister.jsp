@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>HOSPITAL MANAGEMENT SYSTEM</h1>
-	<form method="post" action="LoginServlet">
+	<form method="post" action="VaildateServlet">
 		<table>
 			<tr>
 				<td>Name :</td>

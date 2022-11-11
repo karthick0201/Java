@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Hospital</title>
+<title>Register</title>
 </head>
 <body>
 <h1>HOSPITAL MANAGEMENT SYSTEM</h1>
-	<form method="post" action="VaildateServlet">
+<h3>Patient Registation</h3>
+	<form method="post" action="RegisterServlet">
 		<table>
 			<tr>
 				<td>Name :</td>
@@ -18,16 +19,16 @@
 				<td>Phone No :</td>
 				<td><input type="text" id="p_number" name="pnumber"></td>
 			</tr>
-			<tr>
-				<td>In Time :</td>
-				<td><input type="text" id="in_time" name="intime"></td>
+ 			<tr>
+				<td>Blood Group : </td>
+				<td><input type="text" id="in_time"></td>
 			</tr>
 			<tr>
-				<td>Doctor Time :</td>
-				<td><input type="text" id="doctor_time"  name="docTime"></td>
-			</tr>
+				<td>Enter Your City  :</td>
+				<td><input type="text" id="doctor_time"></td>
+			</tr> 
 		</table>
-		<button  id="submit">SUBMIT</button>
+		<button  id="submit">SUBMIT</button> 
 		
 
 	</form>

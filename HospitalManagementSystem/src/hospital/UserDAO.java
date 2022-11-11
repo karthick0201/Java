@@ -15,7 +15,7 @@ public class UserDAO {
 		Connection  con=DriverManager.getConnection(jdbcURL,jdbcUsername,jdbcPassword);
 		return con;	
 	}
-
+	/*1. INSERT USER */
 	public String insertUser(Patient p) throws ClassNotFoundException, SQLException {
 		System.out.println("----------------------------...");
 		
@@ -24,15 +24,20 @@ public class UserDAO {
 			Statement st = con.createStatement();
 //			String sql = "INSERT INTO patient_db1(patient_name,phone_no,in_time,doctor_time) values('" + p.name + "','"
 //					+ p.phoneNo + "','" + p.inTime + "'," + p.doctorTime + ")";
-			String sql = "INSERT INTO patient_db1(patient_name,phone_no,in_time,doctor_time) values(?,?,?,?)";
+			String sql = "INSERT INTO patient_db1(patient_name,phone_no) values(?,?)";
+		/*
+		 * String sql =
+		 * "INSERT INTO patient_db1(patient_name,phone_no,in_time,doctor_time) values(?,?,?,?)"
+		 * ;
+		 */
 			
 			String result="Data Entered Successfully";
 			try {
 				PreparedStatement ps = con.prepareStatement(sql);
 				ps.setString(1, p.getName());
 				ps.setString(2, p.getPhoneNo());
-				ps.setString(3, p.getInTime());
-				ps.setInt(4, p.doctorTime);
+				//ps.setString(3, p.getInTime());
+				//ps.setInt(4, p.doctorTime);
 				ps.executeUpdate();
 			} catch (SQLException e) {
 				result="Data Not Entered Successfully";
@@ -41,7 +46,7 @@ public class UserDAO {
 			return result;
 
 		}
-	//AUTHCATE --> CHECKING
+	//2. AUTHCATION --> CHECKING
 	public static boolean isVaildate(int id, String phoneNo) {
 		try {
 			Connection con=UserDAO.initializeDatabase();
@@ -63,6 +68,29 @@ public class UserDAO {
 		
 		
 	return false;	
+	}
+	
+	public static int getUserId(String phone_no) {
+		try {
+			Connection con=UserDAO.initializeDatabase();
+			Statement st=con.createStatement();
+			String sql="SELECT patient_id from hospitalservlet.patient_db1 WHERE phone_no="+ phone_no+";";
+			
+			ResultSet rs=st.executeQuery(sql);
+			int id;
+			if(rs.next()) {
+				id=rs.getInt(1);
+				System.out.println("Your Id Is : " + id);
+				return id;
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return -1;
 	}
 	
 }

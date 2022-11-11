@@ -7,6 +7,6 @@
 <title>Checking</title>
 </head>
 <body>
-<h2>Login Successful.....</h2>
+<h2>Logout Successful.....</h2>
 </body>
 </html>

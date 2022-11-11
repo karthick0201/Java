@@ -1,8 +1,7 @@
 package hospital;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,49 +13,39 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    public LoginServlet() {
+        super();
+    }
 
-	public LoginServlet() {
-		super();
-
-	}
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ArrayList<Patient> aL=new ArrayList<Patient>();
-		String name=request.getParameter("pname");
-		String phoneNo=request.getParameter("pnumber");
-		String inTime=request.getParameter("intime");
-		int doctorTime=Integer.parseInt(request.getParameter("docTime"));
-		Patient p=new Patient(name,phoneNo,inTime,doctorTime);
-		aL.add(p);
-		UserDAO uDAO = new UserDAO();
-		try {
-			try {
-				uDAO.insertUser(p);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+		int id=Integer.parseInt(request.getParameter("p_id"));
+		String phoneNo=request.getParameter("p_phoneno");
+		System.out.println("-----------------------");
+		System.out.println("Id : " + id);
+		System.out.println("pno : " + phoneNo);
+		PrintWriter pw=response.getWriter();
+		if(UserDAO.isVaildate(id,phoneNo)) {
+			RequestDispatcher rd = request.getRequestDispatcher("UserProfile.jsp");
+			rd.forward(request, response);
+		}else {
+			//pw.println("<<<<<<<ID & PASSWORD MISMATCH>>>>>>>");
+			//RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+//			pw.println("<a href = \"login.jsp\">Retry</a>");
+			//rd.include(request, response);
+			//rd.forward(request, response);
+			pw.println("<a href = \"login.jsp\">Retry</a>");
+//			response.sendRedirect("login.jsp");
+
+			pw.println();
 		}
+		System.out.println("-----------------------");
 		
 		
-		request.setAttribute("pname", name );
-		request.setAttribute("pnumber", phoneNo);
-		request.setAttribute("intime", inTime );
-		request.setAttribute("docTime", doctorTime );
-		
-		
-		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("display.jsp");
-		rd.forward(request, response);
 		doGet(request, response);
 	}
 

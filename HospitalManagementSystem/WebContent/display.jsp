@@ -14,5 +14,6 @@ Name : ${pname} <br>
 Phone Number : ${pnumber}<br>
 In-Time : ${intime}<br>
 Doctor Time : ${docTime}<br>
+Your Id : ${pid} <br>
 </body>
 </html>

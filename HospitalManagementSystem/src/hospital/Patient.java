@@ -10,11 +10,15 @@ public class Patient {
 	int timeTaken; 
 	int waitingTime;
 	/*CONSTRUCTORS*/
-	public Patient(String name, String phoneNo, String inTime, int doctorTime2) {
+//	public Patient(String name, String phoneNo, String inTime, int doctorTime2) {
+//		this.name=name;
+//		this.phoneNo=phoneNo;
+//		this.inTime=inTime;
+//		this.doctorTime=doctorTime2;
+//	}
+	public Patient(String name, String phoneNo) {
 		this.name=name;
 		this.phoneNo=phoneNo;
-		this.inTime=inTime;
-		this.doctorTime=doctorTime2;
 	}
 	/*GET AND SET METHODS*/
 	public int getPatient_id() {

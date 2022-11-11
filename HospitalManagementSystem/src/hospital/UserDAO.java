@@ -92,5 +92,9 @@ public class UserDAO {
 		
 		return -1;
 	}
+	public static boolean update(Patient p) {
+		System.out.println("Updated success");
+		return true;
+	}
 	
 }

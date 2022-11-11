@@ -16,7 +16,7 @@
 	</tr>
 	</table>
 	
-	<form method="get" action="">
+	<form method="post" action="SummaryServlet">
 		<table>
 			<tr>
 				<td>Enter-In-Time :</td>

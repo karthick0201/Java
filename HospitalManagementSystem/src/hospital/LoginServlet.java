@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -22,6 +23,7 @@ public class LoginServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	@SuppressWarnings("deprecation")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id=Integer.parseInt(request.getParameter("p_id"));
 		String phoneNo=request.getParameter("p_phoneno");
@@ -30,6 +32,11 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("pno : " + phoneNo);
 		PrintWriter pw=response.getWriter();
 		if(UserDAO.isVaildate(id,phoneNo)) {
+			HttpSession session = request.getSession(true);
+			session.putValue("id", id);
+			
+//			response.sendRedirect(request.getContextPath() + "/SummaryServlet");
+			
 			RequestDispatcher rd = request.getRequestDispatcher("UserProfile.jsp");
 			rd.forward(request, response);
 		}else {

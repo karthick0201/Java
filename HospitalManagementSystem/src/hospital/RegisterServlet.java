@@ -45,16 +45,7 @@ public class RegisterServlet extends HttpServlet {
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		}
-		
-		
-//		request.setAttribute("pname", name );
-//		request.setAttribute("pnumber", phoneNo);
-		//request.setAttribute("intime", inTime );
-		//request.setAttribute("docTime", doctorTime );
-		//request.setAttribute("pid", p.patient_id);
-		
-		
+		}		
 		PrintWriter pw=response.getWriter();
 		response.setContentType("text/html");
 		//

@@ -20,6 +20,13 @@ public class Patient {
 		this.name=name;
 		this.phoneNo=phoneNo;
 	}
+	public Patient(int p_id, String inTime, int doctorTime, int waitingTime,String outtime) {
+		this.patient_id = p_id;
+		this.inTime = inTime;
+		this.doctorTime = doctorTime;
+		this.waitingTime = waitingTime;
+		this.outTime = outtime;
+	}
 	/*GET AND SET METHODS*/
 	public int getPatient_id() {
 		return patient_id;

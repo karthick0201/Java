@@ -97,4 +97,54 @@ public class UserDAO {
 		return true;
 	}
 	
+	public static void getPatientDetails(Patient p) {
+		Connection con;
+		try {
+			con = UserDAO.initializeDatabase();
+			Statement st=con.createStatement();
+			String sql="SELECT * FROM hospitalservlet.patient_db1 WHERE patient_id="+ p.patient_id+";";
+			ResultSet rs=st.executeQuery(sql);
+			String name,phoneno;
+			if(rs.next()) {
+				name=rs.getString(2);
+				phoneno=rs.getString(3);
+				p.setName(name);
+				p.setPhoneNo(phoneno);
+				System.out.println("********************");
+				System.out.println("Your Name : " + name);
+				System.out.println("Your phone : " + phoneno);
+				System.out.println("********************");
+			}
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public static void insertCheckUpDetailsDB2(Patient p) {
+		try {
+			Connection con=UserDAO.initializeDatabase();
+			String sql="INSERT INTO hospitalservlet.patient_records(in_time,out_time,doctor_time,waiting_time,patient_id) VALUES(?,?,?,?,?);";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1,p.getInTime());
+			ps.setString(2,p.getOutTime());
+			ps.setInt(3,p.getDoctorTime());
+			ps.setInt(4,p.getWaitingTime());
+			ps.setInt(5,p.getPatient_id());
+			
+			ps.executeUpdate();
+			System.out.println("Inserted Successfull");
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println("Second Table inserted Unsuccessfull!!!");
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+	}
+	
 }

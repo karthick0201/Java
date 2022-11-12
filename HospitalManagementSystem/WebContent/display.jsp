@@ -10,12 +10,14 @@
 <title>Display</title>
 </head>
 <body>
+<h3>Check-up Summary</h3>
+Your Id : ${pid} <br>
 Name : ${pname} <br>
 Phone Number : ${pnumber}<br>
 In-Time : ${intime}<br>
 Doctor Time : ${docTime}<br>
 outTime :${outTime}<br>
 wait Time : ${ waitTime}<br>
-Your Id : ${pid} <br>
+
 </body>
 </html>

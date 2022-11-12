@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>HOSPITAL</title>
+<title>LOGIN PAGE</title>
 </head>
 <body>
 <h1>HOSPITAL MANAGEMENT SYSTEM</h1>

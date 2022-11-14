@@ -141,10 +141,13 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		
+	
+	}
+	public static ResultSet getResultSet(int id) {
 		
 		
 		
-		
+		return null;
 	}
 	
 }

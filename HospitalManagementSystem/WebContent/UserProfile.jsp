@@ -10,8 +10,12 @@
 	<h2>USER PROFILE</h2> <br>
 	<table>
 	<tr>
-	<td><a href="#">Check-Up Details &nbsp </a></td>
-	<td><a href="#">Patient-Details &nbsp</a></td>
+	<td><a href="CheckUpDetails.jsp" >Check-Up Details &nbsp </a>
+	<!-- <form method="post" action="PatientDetails.jsp">
+	<input type="submit" value="checkup">
+	</form> -->
+	</td>
+	<td><a href="PatientDetails.jsp">Patient-Details &nbsp</a></td>
 	<td><a href="welcome.jsp">LogouT &nbsp</a></td>
 	</tr>
 	</table>

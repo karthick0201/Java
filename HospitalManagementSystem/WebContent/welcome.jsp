@@ -8,5 +8,6 @@
 </head>
 <body>
 <h2>Logout Successful.....</h2>
+<a href="login.jsp">Back to Login</a>
 </body>
 </html>

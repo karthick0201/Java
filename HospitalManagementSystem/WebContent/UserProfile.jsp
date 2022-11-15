@@ -7,6 +7,7 @@
 <title>Profile</title>
 </head>
 <body >
+
 	<h2>USER PROFILE</h2> <br>
 	<table>
 	<tr>

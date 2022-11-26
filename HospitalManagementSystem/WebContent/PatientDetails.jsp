@@ -43,7 +43,7 @@
 		if (rs.next()) {
 	%>
 	<form>
-		<table>
+		<table cellpadding="2" cellspacing="2" border="1">
 			<tr>
 				<td>Name</td>
 				<td><input type="text" name="pname"

@@ -12,7 +12,7 @@
 <body>
 	<h2>RECORDS</h2>
 	<form action="UserProfile.jsp">
-	<table> 
+	<table cellpadding="2" cellspacing="2" border="1"> 
 	<tr>
 	<th>Patient-Id</th>
 	<th>In-Time</th>

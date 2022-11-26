@@ -9,7 +9,7 @@
 <body >
 
 	<h2>USER PROFILE</h2> <br>
-	<table>
+	<table >
 	<tr>
 	<td><a href="CheckUpDetails.jsp" >Check-Up Details &nbsp </a>
 	<!-- <form method="post" action="PatientDetails.jsp">
@@ -22,7 +22,7 @@
 	</table>
 	
 	<form method="post" action="SummaryServlet">
-		<table>
+		<table >
 			<tr>
 				<td>Enter-In-Time :</td>
 				<td><input type="text" name="in_time"></td>

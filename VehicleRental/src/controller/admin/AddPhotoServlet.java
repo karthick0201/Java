@@ -40,7 +40,9 @@ public class AddPhotoServlet extends HttpServlet {
 			imgFileName = file.getSubmittedFileName();
 			System.out.println("imgFileName " + imgFileName);
 			//3. GET SOURCE PATH -->SET UPLOADED SOURCE PATH
-			String uploadPath="C:/Users/Administrator/eclipse-workspace/VehicleRental/image/"+imgFileName;
+			//String uploadPath="C:/Users/Administrator/eclipse-workspace/VehicleRental/WebContent/images/"+imgFileName;
+			String uploadPath="C:/Users/Administrator/git/Java/VehicleRental/WebContent/images/" + imgFileName;
+			
 			System.out.println("Upload path : " + uploadPath);
 			
 			//4. UPLOAD TO FOLDER

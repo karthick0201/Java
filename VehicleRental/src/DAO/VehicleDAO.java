@@ -46,7 +46,24 @@ public class VehicleDAO {
 		}
 		
 	}
-	
+	public static void deleteVehicle(int id) {
+		try {
+			String query="DELETE from vehicle_rental.vehicle WHERE car_id=?";
+			Connection con=initializeDatabase();
+			PreparedStatement ps=con.prepareStatement(query);
+			ps.setInt(1, id);
+			int row=ps.executeUpdate();
+			System.out.println("Row : " + row);
+			System.out.println(id + " : Data Deleted Successfull!!!");
+			
+				
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println(id + " : Data Deleted UnSuccessfull!!!");
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	

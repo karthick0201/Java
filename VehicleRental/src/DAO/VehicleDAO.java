@@ -46,6 +46,8 @@ public class VehicleDAO {
 		}
 		
 	}
+		
+
 	public static void deleteVehicle(int id) {
 		try {
 			String query="DELETE from vehicle_rental.vehicle WHERE car_id=?";

@@ -14,7 +14,7 @@ public class TableClassDemo {
 		plasticTable.tableSwitchOn();
 		/*
 		 * SPECIAL TABLE:
-		 * --> In this spacial table, we trun on swich, 1. lights on + fan run...
+		 * --> In this spacial table, we trun on switch, 1. lights on + fan run...
 		 * */
 		TableClass spacialTable=new TableClass("steel", "rect", "red");
 		spacialTable.tableSwitchOn();

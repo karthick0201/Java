@@ -16,11 +16,11 @@ public class Permutation_20 {
 	}
 
 	private static void findPermutation(String s, int front, int back) {
-		
+		//s=abc
 		if(front==back) {
-			System.out.println(s);
+			System.out.println(s); 
 		}else {
-			for(int i=front;i<=back;i++) {
+			for(int i=front;i<=back;i++) { //0-2
 				//1. do
 				s= swap(s,front,i);
 				//2. recur

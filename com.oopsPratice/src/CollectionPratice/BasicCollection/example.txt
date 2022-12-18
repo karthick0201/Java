@@ -1,0 +1,14 @@
+LIST METHODS:
+-------------
+.add();
+.addAll()
+.contains()
+.isEmpty()
+.size()
+.retain()
+.retainAll()
+.get()
+.indexOf()
+.lastIndexOf()
+.remove()
+.removeAll()

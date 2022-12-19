@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TransactionHandler {
 
-	private final String transPath = "C:\\Users\\Administrator\\eclipse-workspace\\Bank2\\src\\DocFiles\\";
+	private final String transPath = "C:\\Users\\Administrator\\git\\Java\\Bank2\\src\\DocFiles\\";
 
 	public ArrayList<Transaction> initializeData(String cid) {
 		
@@ -51,20 +51,22 @@ public class TransactionHandler {
 			/*FILE HECK OR CREATE NEW FILE*/
 			String path=transPath + cusId +".txt";
 			File file=new File(path);
-			
 			FileWriter fw;
+			//System.out.println(file);
 			try {
 				fw = new FileWriter(file,true);
 				BufferedWriter bw=new BufferedWriter(fw);
 				if(file.exists()) {
-					System.out.println(t.toString());
+					//System.out.println("coming true dddddd");
+					//System.out.println(t.toString());
 					bw.write(t.toString());
 					bw.newLine();
 					bw.flush();
 					bw.close();
 				}else {
+					//System.out.println("coming falsedddd");
 					file.createNewFile();
-					System.out.println(t.toString());
+					//System.out.println(t.toString());
 					bw.write(t.toString());
 					bw.newLine();
 					bw.flush();

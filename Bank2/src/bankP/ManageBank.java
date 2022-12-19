@@ -1,6 +1,6 @@
 package bankP;
 
-import java.util.Collection;    
+import java.util.Collection;     
 import java.util.Scanner;
 
 import bank.Handler.BankHandler;
@@ -49,6 +49,7 @@ public class ManageBank {
 			case 3:
 				System.out.println("\tThank You!!!!");
 				/*MAP TO FILE QUERY UPDATE QUERY*/
+				bh.storeIntoFile();
 				check = false;
 				break;
 			case 4://ADMIN VIEW ONLY FOR ERROR CHECKING
@@ -241,7 +242,12 @@ public class ManageBank {
 					System.out.println("Remove Customer!!!");
 					break;
 				case 3:
-					System.out.println("Top-N Customers!!!");
+					topNCustomers();
+					
+					
+					
+					
+					
 					break;
 				case 4:
 					System.out.println("Logout Successfull!!!");
@@ -255,5 +261,10 @@ public class ManageBank {
 			}
 
 		}
+	}
+
+	private void topNCustomers() {
+		bank.topNCustomers();
+		
 	}
 }

@@ -24,7 +24,7 @@ public class BankHandler {
 	final static private int BALANCE = 3;
 	final static private int PASSWORD = 4;
 
-	final static String  BANK_FILE_PATH= "C:\\Users\\Administrator\\eclipse-workspace\\Bank2\\src\\DocFiles\\bank_db.txt";
+	final static String  BANK_FILE_PATH= "C:\\Users\\Administrator\\git\\Java\\Bank2\\src\\DocFiles\\bank_db.txt";
 	public void storeIntoFile() {
 		try {
 			FileWriter fw = new FileWriter(BANK_FILE_PATH);

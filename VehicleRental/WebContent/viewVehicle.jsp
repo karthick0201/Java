@@ -8,7 +8,7 @@
 	pageEncoding="UTF-8"%>
 <!------------------IMPORT CLASSES: ---------------->
 <%@ page import="java.sql.*"%>
-<%@ page import="DAO.*"%>
+<%@ page import="dao.*"%>
 
 
 <!DOCTYPE html>

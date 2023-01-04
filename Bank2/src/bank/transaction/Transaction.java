@@ -36,7 +36,9 @@ public class Transaction {
 	}
 
 
-
+	public void display() {
+		System.out.println(transactionId+"   "+transactionType +"   " + amount +"   "+ balance + "   " + maintanceFee);
+	}
 
 	public String toString() {
 		return ""+transactionId+" "+transactionType +" " + amount +" "+ balance + " " + maintanceFee; 

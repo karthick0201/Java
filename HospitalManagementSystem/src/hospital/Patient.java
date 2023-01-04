@@ -1,14 +1,14 @@
 package hospital;
 
 public class Patient {
-	int patient_id;  //
-	String name; //
-	String phoneNo; //
-	String inTime; //
-	String outTime;
-	int doctorTime; //
-	int timeTaken; 
-	int waitingTime;
+private	int patient_id;  //
+	private String name; //
+	private String phoneNo; //
+	private String inTime; //
+	private String outTime;
+	private int doctorTime; //
+	private int timeTaken; 
+	private int waitingTime;
 	/*CONSTRUCTORS*/
 //	public Patient(String name, String phoneNo, String inTime, int doctorTime2) {
 //		this.name=name;

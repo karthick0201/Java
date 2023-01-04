@@ -57,7 +57,7 @@ public class BankHandler {
 
 			FileReader file = new FileReader(BANK_FILE_PATH);
 			BufferedReader read = new BufferedReader(file);
-			System.out.println("hello");
+			//System.out.println("hello");
 			try {
 				String lineDetail = read.readLine();
 				while (lineDetail != null) {
@@ -67,10 +67,10 @@ public class BankHandler {
 					/*********************************************************/
 								/*TRANSACTION HISTORY with the help of cid*/
 					TransactionHandler tah=new TransactionHandler();
-					System.out.println(lineDetail);
-					System.out.println("coming al before");
+					//System.out.println(lineDetail);
+				//	System.out.println("coming al before");
 					ArrayList<Transaction> al=tah.initializeData(line[CUSID]);
-					System.out.println("coming al after");
+					//System.out.println("coming al after");
 					
 					/*********************************************************/
 					

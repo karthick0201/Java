@@ -2,6 +2,7 @@ package bank.customer;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 import bank.transaction.Transaction;
@@ -59,12 +60,16 @@ public class Customer  {
 	}
 
 	public void display() {
-		System.out.println(cusId + " : " + accountNumber + " : " + name + " : " + balance + " : " + password);
+		
+		
+		//System.out.println("CUSTOMER_ID   ACCOUNT_NO   NAME      BALANCE     PASSWORD");
+		
+		System.out.println(cusId + "      " + accountNumber + "          " + name + "      " + balance + "       " + password);
 	}
 
 	@Override
 	public String toString() {
-		return "" + cusId + " : " + accountNumber + " : " + name + " : " + balance + " : " + password + " : ";
+		return "" + cusId + " : " + accountNumber + " : " + name + " : " + balance + " : " + password;
 	}
 
 	public String getCusId() {
@@ -117,7 +122,12 @@ public class Customer  {
 
 	public void transactionHistory() {
 
-		System.out.println(transactions);
+		Iterator<Transaction> i= transactions.iterator();
+		while(i.hasNext()) {
+			i.next().display();
+		}
+		
+		//System.out.println(transactions);
 	}
 
 	

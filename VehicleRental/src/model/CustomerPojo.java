@@ -2,13 +2,13 @@ package model;
 
 public class CustomerPojo {
 	
-	int cus_id; //Primary Key
-	String cusName;
-	String contactNo;
-	String cusType;
-	String emailId;
-	String userName; //Unique key
-	String password;
+	private int cus_id; //Primary Key
+	private String cusName;
+	private String contactNo;
+	private String cusType;
+	private String emailId;
+	private String userName; //Unique key
+	private String password;
 	
 	public CustomerPojo(String cusName, String contactNo, String cusType, String emailId, String userName,
 			String password) {

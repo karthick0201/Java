@@ -15,6 +15,7 @@ public class UserDAO {
 		Connection  con=DriverManager.getConnection(jdbcURL,jdbcUsername,jdbcPassword);
 		return con;	
 	}
+	
 	/*1. INSERT USER */
 	public String insertUser(Patient p) throws ClassNotFoundException, SQLException {
 		System.out.println("----------------------------...");

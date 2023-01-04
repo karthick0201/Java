@@ -1,8 +1,8 @@
 package model;
 
 public class VehiclePojo {
-	int carId,carSeatCount,carPricePerDay;
-	String carName,carNum,carModelNo,carType,carDescription,carStatus,carPhoto;
+	private int carId,carSeatCount,carPricePerDay;
+	private String carName,carNum,carModelNo,carType,carDescription,carStatus,carPhoto;
 	
 
 	public VehiclePojo(String carName, String carNum, String carModelNo, String carType, int carSeatCount,

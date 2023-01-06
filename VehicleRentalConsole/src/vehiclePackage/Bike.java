@@ -21,6 +21,12 @@ public class Bike extends AbstractVehicle {
 
 	}
 
+	public void setStartDate(String s) { 
+		this.startDate=s;
+	}
+	public void setEndDate(String s) { 
+		this.end_Date=s;
+	}
 	// BikeBuilder
 	public static class BikeBuilder {
 
@@ -89,6 +95,7 @@ public class Bike extends AbstractVehicle {
 	@Override
 	public void display() {
 		System.out.println("---------------------------------");
+		System.out.println("VehicleNo    : " + getVehicleNumber());
 		System.out.println("Model No     : " + modelNo);
 		System.out.println("description  : " + description);
 		System.out.println("pricePerDay  : " + pricePerDay);
@@ -96,9 +103,10 @@ public class Bike extends AbstractVehicle {
 		System.out.println("end_Date     : " + end_Date);
 		System.out.println("BrandName     : " + getBrand_name());
 		System.out.println("Fuel          : " + getFuel());
-		System.out.println("VehicleNo     : " + getVehicleNumber());
 		System.out.println("TransMission  : " + getTransMission());
 		System.out.println("---------------------------------");
 		
 	}
+	
+	
 }

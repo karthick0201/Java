@@ -1,4 +1,4 @@
-package citizenPackage;
+package citizenPackagePojo;
 
 import rentalAgencyPackage.AbstractKatRental;
 

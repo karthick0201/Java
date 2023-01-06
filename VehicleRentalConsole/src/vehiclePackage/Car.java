@@ -14,8 +14,15 @@ public class Car extends AbstractVehicle {
 	private String driverId;
 	private String description;
 	private String startDate;
-	private String endDate;
+	private String endDate;//(avaiable date)
 
+	
+	public void setStartDate(String s) { 
+		this.startDate=s;
+	}
+	public void setEndDate(String s) { 
+		this.endDate=s;
+	}
 	// Constructor
 	public Car() {
 		super();
@@ -43,8 +50,8 @@ public class Car extends AbstractVehicle {
 		this.modelNo = modelNo;
 		this.pricePerDay = pricePerDay;
 		this.description = description;
-		this.startDate="12 10 2011";
-		this.endDate="13 10 2011";
+		this.startDate="2011-10-12";
+		this.endDate="2011-10-13";
 
 	}
 	public Car(CarBuilder carBuilder) {
@@ -142,6 +149,7 @@ public class Car extends AbstractVehicle {
 	@Override
 	public void display() {
 		System.out.println("---------------------------------");
+		System.out.println("VehicleNo    : " + getVehicleNumber());
 		System.out.println("Model No     : " + modelNo);
 		System.out.println("Seat Count   : " + seatCount);
 		System.out.println("description  : " + description);
@@ -150,9 +158,9 @@ public class Car extends AbstractVehicle {
 		System.out.println("end_Date     : " + endDate);
 		System.out.println("BrandName     : " + getBrand_name());
 		System.out.println("Fuel          : " + getFuel());
-		System.out.println("VehicleNo     : " + getVehicleNumber());
 		System.out.println("TransMission  : " + getTransMission());
 		System.out.println("---------------------------------");
 		
 	}
+	
 }

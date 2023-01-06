@@ -1,4 +1,4 @@
-package citizenPackage;
+package citizenPackagePojo;
 
 public abstract class AbstractCitizen {
 

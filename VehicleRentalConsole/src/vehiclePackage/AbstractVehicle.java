@@ -1,5 +1,7 @@
 package vehiclePackage;
 
+import java.util.ArrayList; 
+import java.util.List;
 import java.util.Scanner;
 
 public abstract class AbstractVehicle {
@@ -10,13 +12,22 @@ public abstract class AbstractVehicle {
 	private String fuel; // diesal/petrol
 	private String transMission;// automative / manuel
 	private String ownerId;
-
+	
+	private List<String>vehicleDates;
 	public AbstractVehicle() {
-		
+		vehicleDates =new ArrayList<String>();
 	}
-
+	public List<String> getVehicleDates(){
+		return vehicleDates;
+	}
+	public void setVehicleDates(List<String> l){
+		this.vehicleDates=l;
+	}
+	
+	
+	
 	// constructor
-	public AbstractVehicle(
+	public AbstractVehicle( 
 
 			String brand_name, String vehicleNumber, String fuel, String transMission, String ownerId) {
 
@@ -25,8 +36,25 @@ public abstract class AbstractVehicle {
 		this.fuel = fuel;
 		this.transMission = transMission;
 		this.ownerId = ownerId;
+		vehicleDates = new ArrayList<String>();
 	}
 
+	public String getLastDate() {
+		return String.valueOf(vehicleDates.get(vehicleDates.size()-1));
+	}
+	public boolean isEmptyVehicleDates() {
+		
+		if(vehicleDates.isEmpty()) {
+			return true;
+		}
+		return false;
+	}
+	
+	
+	//public abstract void viewVehicle();
+	
+	
+	
 	// GET AND SET METHODS
 	
 	public String getOwnerId() {
@@ -66,5 +94,10 @@ public abstract class AbstractVehicle {
 	}
 	
 	public abstract void display();
-
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
 }

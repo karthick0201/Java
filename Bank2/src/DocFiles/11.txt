@@ -1,4 +1,0 @@
-1 Opening 10000 10000 0
-2 Deposit 2000 12000 0
-3 Credited 12 77000 0
-4 withdraw 12 77000 0

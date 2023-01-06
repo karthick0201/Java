@@ -1,5 +1,0 @@
-1 Opening 10000 10000 0
-2 Deposit 190 10190 0
-3 withdraw 100 10090 0
-4 Debited 12 10078 0
-5 Deposit 130000 140078 0

@@ -3,7 +3,7 @@ package checkPackage;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+//kggggggggggggggg
 public class StaticSuperClassCheck {
 	public static void main(String[] args) {
 		RentalAgency r1=new KatRentalAgency();
